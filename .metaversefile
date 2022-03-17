@@ -5,7 +5,7 @@
     {
       "key": "pet",
 	  "idleAnimation": "",
-      "walkAnimation": "Animation 2"
+      "walkAnimation": "walk_Armature.001"
     }
   ]
 }
