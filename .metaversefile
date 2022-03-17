@@ -1,12 +1,19 @@
 {
-  "name": "tubby-cat",
-  "start_url": "https://m3-org.github.io/tubby-pet/tubby.glb",
+  "name": "tubby",
+  "start_url": "tubby.glb",
   "components": [
+    {
+      "key": "look",
+      "value": {
+        "rootBone": "mixamorig:Neck"
+      }
+    },
     {
       "key": "pet",
       "value": {
         "idleAnimation": "idle",
-        "walkAnimation": "walk"
+        "walkAnimation": "walk",
+        "runAnimation": ""
       }
     }
   ]
