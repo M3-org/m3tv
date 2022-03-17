@@ -1,0 +1,10 @@
+{
+  "name": "tubby-cat",
+  "start_url": "tubbywalkidle.glb",
+  "components": [
+    {
+      "type": "pet",
+      "walkAnimation": "Animation 2"
+    }
+  ]
+}
