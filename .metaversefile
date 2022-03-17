@@ -4,8 +4,8 @@
   "components": [
     {
       "key": "pet",
-	  "idleAnimation": "idle",
-      "walkAnimation": "walk"
+	  "idleAnimation": "idle_Armature.001",
+      "walkAnimation": "walk_Armature.001"
     }
   ]
 }
