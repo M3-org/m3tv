@@ -1,9 +1,10 @@
 {
   "name": "tubby-cat",
-  "start_url": "https://m3-org.github.io/tubby-pet/tubbywalkidle.glb",
+  "start_url": "https://m3-org.github.io/tubby-pet/tubby.glb",
   "components": [
     {
-      "type": "pet",
+      "key": "pet",
+	  "idleAnimation": "",
       "walkAnimation": "Animation 2"
     }
   ]
