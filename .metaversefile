@@ -1,6 +1,6 @@
 {
   "name": "tubby-cat",
-  "start_url": "tubbywalkidle.glb",
+  "start_url": "https://m3-org.github.io/tubby-pet/tubbywalkidle.glb",
   "components": [
     {
       "type": "pet",
