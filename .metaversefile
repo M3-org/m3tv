@@ -1,11 +1,11 @@
 {
   "name": "tubby",
-  "start_url": "floating.glb",
+  "start_url": "floating3.glb",
   "components": [
     {
       "key": "look",
       "value": {
-        "rootBone": "mixamorig:Spine2"
+        "rootBone": "Spine2"
       }
     },
     {
