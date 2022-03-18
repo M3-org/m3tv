@@ -1,6 +1,6 @@
 {
   "name": "tubby",
-  "start_url": "floating.glb",
+  "start_url": "floating2.glb",
   "components": [
     {
       "key": "look",
