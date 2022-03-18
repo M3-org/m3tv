@@ -1,0 +1,20 @@
+{
+  "name": "jin_tubby",
+  "start_url": "jin_tubby_idleFloat_idle_walk.glb",
+  "components": [
+    {
+      "key": "look",
+      "value": {
+        "rootBone": "mixamorig_Spine2"
+      }
+    },
+    {
+      "key": "pet",
+      "value": {
+        "idleAnimation": "idle",
+        "walkAnimation": "walk",
+        "runAnimation": ""
+      }
+    }
+  ]
+}
