@@ -11,7 +11,7 @@
     {
       "key": "pet",
       "value": {
-        "idleAnimation": "idle",
+        "idleAnimation": "",
         "walkAnimation": "walk",
         "runAnimation": ""
       }
