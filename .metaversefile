@@ -1,6 +1,6 @@
 {
   "name": "tubby",
-  "start_url": "tubby.glb",
+  "start_url": "floating.glb",
   "components": [
     {
       "key": "look",
@@ -11,8 +11,8 @@
     {
       "key": "pet",
       "value": {
-        "idleAnimation": "",
-        "walkAnimation": "walk",
+        "idleAnimation": "idleFloat",
+        "walkAnimation": "idleFloat",
         "runAnimation": ""
       }
     }
