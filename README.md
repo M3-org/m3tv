@@ -55,33 +55,33 @@ The following is an example pet file:
 
 ## Schema
 
-### `.name`
+### .name
 
 The name of the spec. This should always be `m3/pet`.
 
-### `.version`
+### .version
 
 The version of the pet spec being used.
 
-### `.model`
+### .model
 
-A full qualified URL to a gltf-binary file with the extension `.glb`.
+A fully qualified URL to a gltf-binary file with the extension `.glb`.
 
 Note: IPFS is not currently supported, but may be added in a future version.
 
-### `.scale` (optional)
+### .scale (optional)
 
 An integer scale to be applied to the model.
 
 Note: It's recommended to scale your model to real-world units instead.
 
-### `.idle`
+### .idle
 
 Describes the idle state of the pet, eg standing and looking around.
 
 `.idle.animation`: The name of the idle animation included in the model.
 
-### `.move`
+### .move
 
 Describes the moving state of the pet, eg walking, running or flying.
 
@@ -89,7 +89,7 @@ Describes the moving state of the pet, eg walking, running or flying.
 
 `.move.speed`: The speed that the pet should move, in meters per second.
 
-### `.sit` (optional)
+### .sit (optional)
 
 Describes the sitting state of the pet, eg sitting or lying down.
 
@@ -97,7 +97,7 @@ Describes the sitting state of the pet, eg sitting or lying down.
 
 If this field is not defined, platforms will ignore all sitting functionality.
 
-### `.action{n}` (optional)
+### .action{n} (optional)
 
 Describes one or more action states of the pet, eg barking or doing a backflip.
 
