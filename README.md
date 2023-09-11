@@ -10,7 +10,7 @@ This document aims to follow in the success of VRM avatars, which provides a wel
 
 > It has been observed that the key to profound interoperability is to formalize the essence of an object, without going off the rails. It would be futile to have many identical platforms with zero differentiation.
 >
-> - Ashxn
+> Ashxn
 
 ## JSON
 
@@ -26,29 +26,29 @@ Using JSON allows for maximum portability. Platforms can choose exactly how they
 
 The following is an example pet file:
 
-```
+```json
 {
-  name: 'm3/pet',
-  version: [1, 0, 0],
-  model: 'https://domain.com/pet.glb',
-  scale: 1,
-  idle: {
-    animation: 'idle',
+  "name": "m3/pet",
+  "version": [1, 0, 0],
+  "model": "https://domain.com/pet.glb",
+  "scale": 1,
+  "idle": {
+    "animation": "idle"
   },
-  move: {
-    animation: 'run',
-    speed: 3,
+  "move": {
+    "animation": "run",
+    "speed": 3
   },
-  sit: {
-    animation: 'sit'
+  "sit": {
+    "animation": "sit"
   },
-  action1: {
-    animation: 'bark',
-    sound: 'https://domain.com/bark.mp3'
+  "action1": {
+    "animation": "bark",
+    "sound": "https://domain.com/bark.mp3"
   },
-  action2: {
-    animation: 'flip',
-    sound: 'https://domain.com/flip.mp3'
+  "action2": {
+    "animation": "flip",
+    "sound": "https://domain.com/flip.mp3"
   }
 }
 ```
