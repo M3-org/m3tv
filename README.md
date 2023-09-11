@@ -32,97 +32,83 @@ The following is an example pet spec:
 {
   "spec": "M3_pet",
   "version": [0, 1, 0],
-  "name": "Doggo",
-  "description": "A little purple doggo",
-  "model": {
-    "url": "https://domain.com/doggo.glb",
-    "scale": 0.1
-  },
-  "idle": {
-    "animation": "idle"
-  },
-  "move": {
-    "animation": "run",
-    "speed": 3
-  },
-  "sit": {
-    "animation": "sit"
-  },
+  "name": "Wolf",
+  "description": "A little blue wolf",
+  "model": "https://domain.com/wolf.glb",
+  "speed": 3,
+  "near": 1,
+  "far": 3,
   "emotes": [
     {
+      "name": "Bark",
       "animation": "bark",
-      "sound": "https://domain.com/bark.mp3"
+      "audio": "https://domain.com/bark.mp3"
     },
     {
+      "name": "Flip",
       "animation": "flip",
-      "sound": "https://domain.com/flip.mp3"
+      "audio": "https://domain.com/flip.mp3"
     }
   ]
 }
 ```
 
-## Schema
-
-### `.spec`
+## `spec`
 
 The name of the spec. This should always be `M3_pet`.
 
-### `.version`
+## `version`
 
 The version of the pet spec being used.
 
-### `.name`
+## `name`
 
-A short name of the pet.
+A short name for the pet, eg `Wolf`.
 
-### `.description` (optional)
+This may be used in UI or as a name tag above the pet in-world.
 
-A description of the pet.
+## `description`
 
-### `.model`
+A description of the pet that may be used in UI or when inspecting a pet.
 
-Describes the model to be used.
+## `model`
 
-- `.model.url`: A fully qualified URL to a gltf-binary file with the extension `.glb`.
-- `.model.scale`: (optional) An integer scale to be applied to the model.
+A fully qualified URL to a gltf-binary file with the extension `.glb`. IPFS urls are not currently supported, but may be added in a future version.
 
-Note: IPFS is not currently supported, but may be added in a future version.
+Models should use a real-world scale, in meters.
 
-### `.scale` (optional)
+The models origin is used as the ground reference for the pet.
 
-An integer scale to be applied to the model.
+Any kind of skeleton and animations supported by GLTF may be used.
 
-Note: It's recommended to scale your model to real-world units instead.
+The model must include three animations used for different behaviors:
 
-### `.idle`
+1. An animation named `idle` is used when the pet is idle, eg standing and looking around.
+2. An animation named `move` that is used when the pet is moving, eg running.
+3. An animation named `stay` that is used when the pet has no objectives or has been ordered to stay, eg sitting.
 
-Describes the idle state of the pet, eg standing and looking around.
+## `speed`
 
-- `.idle.animation`: The name of the idle animation included in the model.
+The speed at which the pet moves. Generally this would be synchronised to match the `move` animation speed.
 
-### `.move`
+## `near`
 
-Describes the moving state of the pet, eg walking, running or flying.
+The near distance that the pet should stop at when following a target. This will also vary depending on the size of the pet.
 
-- `.move.animation`: The name of the move animation included in the model.
-- `.move.speed`: The speed that the pet should move, in meters per second.
+## `far`
 
-### `.sit` (optional)
+The distance that a pets target must move away before the pet begins following it.
 
-Describes the sitting state of the pet, eg sitting or lying down.
+## `emotes`
 
-- `.sit.animation`: The name of the sit animation included in the model.
+Describes additional, optional, emotes that a pet may express.
 
-If this field is not defined, platforms will ignore all sitting functionality.
+Platforms may execute emotes differently, for example on a timer or when interacting with the pet.
 
-### `.emotes[]` (optional)
+Each emote includes:
 
-Describes one or more emotes for the pet, eg barking or doing a backflip.
-
-Platforms will generally pick one of these at random to execute, eg when interacting with the pet or on a timer.
-
-- `.emotes[n].animation`: The name of the animation included in the model.
-- `.emotes[n].sound`: (optional) A fully qualified URL to an MP3 sound file to play.
+1. (required) The name of the `animation` to play. The animation is played just once.
+2. (optional) The URL of an `audio` clip to play. This must be a fully qualified URL to a `.mp3` file.
 
 ## Implementation Notes
 
