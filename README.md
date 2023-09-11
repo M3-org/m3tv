@@ -125,13 +125,13 @@ Platforms will generally pick one of these at random to execute, eg when interac
 
 There are only so many 3 or 4 letter extension combinations that can exist.
 
-By being explicit, a `.json` file is understood instantly and is a highly portable manifest file for interoperable objects like pets.
+By being explicit, a `*.pet.json` file is understood instantly and is a highly portable manifest file for interoperable objects like pets.
 
 ### Why not use a GLTF extension?
 
 While GLTF has fast become the most portable way to interoperate 3D models, there are a few reasons why we think its best to use JSON for spec files:
 
-1. It's much easier to write a descriptive json file than it is to both parse or format a GLB with extension data.
+1. It's much easier for developers and creators to write a json file than it is to inject or read a GLB extension. Anyone should be able to create their own pets easily.
 2. Platforms should be able to determine support for an object BEFORE downloading all of the assets such as 3D models and audio etc.
 3. JSON is universal while GLTF is still maturing. This leaves the spec open to add support for future formats.
-4. Not all interoperable objects require 3D models, and the 3D models are not always the "main" part of an interoperable object.
+4. Not all interoperable objects require 3D models, and 3D models are not always the "main" part of an interoperable object.
