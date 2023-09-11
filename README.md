@@ -16,6 +16,8 @@ This document aims to follow in the success of VRM avatars, which provides a wel
 
 A pet file is written in json and describes the behavior of a unique pet that can be used within a virtual world that supports them.
 
+To aid platforms in determining what a file is before loading it, a pet file must be named with the double extension `.pet.json`, for example `tubby.pet.json`.
+
 Using JSON allows for maximum portability. Platforms can choose exactly how they accept a pet file into their engine, eg:-
 
 - Drag & Drop
@@ -28,9 +30,11 @@ The following is an example pet file:
 
 ```json
 {
-  "name": "m3/pet",
+  "spec": "M3_pet",
   "version": [1, 0, 0],
-  "model": "https://domain.com/pet.glb",
+  "name": "Doggo",
+  "description": "A little purple doggo",
+  "model": "https://domain.com/doggo.glb",
   "scale": 1,
   "idle": {
     "animation": "idle"
@@ -55,13 +59,21 @@ The following is an example pet file:
 
 ## Schema
 
-### .name
+### .spec
 
-The name of the spec. This should always be `m3/pet`.
+The name of the spec. This should always be `M3_pet`.
 
 ### .version
 
 The version of the pet spec being used.
+
+### .name
+
+A short name of the pet.
+
+### .description (optional)
+
+A description of the pet.
 
 ### .model
 
