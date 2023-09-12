@@ -8,9 +8,8 @@ The goal of this specification is to provide enough information about a pet, whi
 
 This document aims to follow in the success of VRM avatars, which provides a well defined avatar specification that still allows platforms to differentiate, innovate and express themselves independently.
 
-> It has been observed that the key to profound interoperability is to formalize the essence of an object, without going off the rails. It would be futile to have many identical platforms with zero differentiation.
->
-> Ashxn
+> The key to profound interoperability is to formalize the "essence" of an object, without going off the rails. It would be futile to have many identical platforms with zero differentiation.
+> – Ashxn
 
 ## JSON
 
@@ -116,6 +115,7 @@ Each emote includes:
 - [ ] Write some implementation notes, specifically how hyperfy has used this
 - [ ] Open source our pet spec validation js method
 - [ ] Add some example pets (json + files)
+- [ ] Consider something like \*.verse.json as an abstract for all interoperable objects, with the only requirement being `type` and `version` fields. Each spec defines all other fields independently.
 
 ---
 
