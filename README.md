@@ -30,7 +30,7 @@ The following is an example pet spec:
 
 ```json
 {
-  "spec": "M3_pet",
+  "type": "M3_pet",
   "version": [0, 1, 0],
   "name": "Wolf",
   "description": "A little blue wolf",
@@ -53,9 +53,9 @@ The following is an example pet spec:
 }
 ```
 
-## `spec`
+## `type`
 
-The name of the spec. This should always be `M3_pet`.
+The spec that this json adheres to. This should always be `M3_pet`.
 
 ## `version`
 
@@ -110,9 +110,12 @@ Each emote includes:
 1. (required) The name of the `animation` to play. The animation is played just once.
 2. (optional) The URL of an `audio` clip to play. This must be a fully qualified URL to a `.mp3` file.
 
-## Implementation Notes
+## TODOS
 
-TODO
+- [ ] Skinned meshes are notoriously hard to raycast against, how do we hitbox a pet? Custom mesh embedded?
+- [ ] Write some implementation notes, specifically how hyperfy has used this
+- [ ] Open source our pet spec validation js method
+- [ ] Add some example pets (json + files)
 
 ---
 
@@ -136,3 +139,11 @@ While GLTF has fast become the most portable way to interoperate 3D models, ther
 ### Why are there no skeleton requirements? / Why are animations embedded?
 
 Unlike avatars, pets can vary widely and come in all different shapes and sizes. From a simple rock pet to an eight-legged octopus, each has the ability to have its own personality embedded into the model itself.
+
+### Why can I not control the scale, offset or animation mappings via the json spec?
+
+Clear separation of concerns. The `model` attribute points to a GLB model which defines all information relating to the 3D model itself.
+
+While being able to overwrite these in the spec would be useful, it blurs the lines of responsibility.
+
+Emote animations are a quasi-exception to this rule, since pets can have a variable number of custom animations, they need to be explicitly defined in the spec itself.
