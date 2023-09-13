@@ -1,4 +1,3 @@
-# tubby-pet
-Tubby cat pet that follows you around, made with CC0 assets
+# M3TV
 
-Check this repo out for more 3D tubby cats: https://github.com/la53rshark/tubby-cats
+Check dework: https://app.dework.xyz/m3/m3tv-assets/view/board-lcle1qxk
