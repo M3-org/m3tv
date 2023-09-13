@@ -2,7 +2,7 @@
 
 This document outlines a draft specification for interoperable pets in virtual worlds.
 
-It also attempts to set the foundation for other interoperable objects to use as a foundation in the future.
+It also attempts to set the foundation to create future interoperable objects.
 
 ## Overview
 
@@ -10,19 +10,18 @@ The goal of this specification is to provide a simple, portable construct that d
 
 The description of each pet must be platform-agnostic, capturing only essential information. This affords platforms the freedom to differentiate, innovate and express themselves independently, while still fostering collaboration at the interoperable level.
 
-> The key to profound interoperability is to formalize the "essence" of an object, without going off the rails. It would be futile to have many identical platforms with zero differentiation.
-> – Ashxn
+> The key to profound interoperability is to formalize the "essence" of an object, without going off the rails. It would be futile to have many identical platforms with zero differentiation. – Ashxn
 
 ## Spec
 
 Each pet is described with a document written in JSON. JSON was chosen as a highly portable and well established format. It can easily exist as a standlone file or be embedded in databases, NFTs and other systems with minimal effort.
 
-It's likely that interoperable objects other than pets will exist in the future. Because of this, we propose that pets are part of a very simple parent standard that allows future interop efforts to benefit from the foundations being made here.
+It's likely that interoperable objects other than pets will exist in the future. Because of this, we propose that pets are part of a very simple parent standard that allows future interop efforts to benefit from the foundations being made here:-
 
 ```json
 {
   "type": "M3_pet",
-  "version": [0, 1, 0]
+  "version": "0.1.0"
 }
 ```
 
@@ -41,7 +40,7 @@ The following is an example pet document with a valid schema:
 ```json
 {
   "type": "M3_pet",
-  "version": [0, 1, 0],
+  "version": "0.1.0",
   "name": "Wolf",
   "description": "A little blue wolf",
   "model": "https://domain.com/wolf.glb",
@@ -65,11 +64,11 @@ The following is an example pet document with a valid schema:
 
 ## `type`
 
-The spec that this document is adhering to. This should always be `M3_pet`.
+The spec that this document is adhering to. For pets this will always be `M3_pet`.
 
 ## `version`
 
-The version of the pet schema being used.
+The semver version of the pet schema being used.
 
 ## `name`
 
@@ -90,23 +89,23 @@ A fully qualified URL to a gltf-binary file with the extension `.glb`. IPFS urls
 The model may be built however the creator wants, with a few guidelines:
 
 1. The model should be scaled to real-world units in meters
-1. The scenes origin is used as a reference point to the ground
+1. The scene origin is used as a ground reference point
 1. Negative Z-axis is forward (if using blender)
 
 In addition to this, each model MUST include:
 
 1. An animation named `idle` that will be used when the pet is idle, eg standing and looking around
-1. An animation named `move` that will be used when the pet is moving, eg walking or running
+1. An animation named `move` that will be used when the pet is moving, eg walking, running or flying
 1. An animation named `stay` that will be used when the pet has no objectives or has been ordered to stay, eg sitting or lying down
-1. A mesh that includes `_hitbox` in its name, to approximate the shape of the pet for interaction (use a fully transparent material for extra interop)
+1. A mesh that includes `_hitbox` in its name, used to approximate the shape of the pet for interaction (use a fully transparent material for extra interop)
 
 ## `speed`
 
-The speed at which the pet moves in meters per second. Generally this would be approximated to match the `move` animation speed.
+The speed at which the pet moves, in meters per second. Generally this would be approximated to match the `move` animation speed.
 
 ## `near`
 
-The near distance that the pet should stop at when following/reaching a target. This will also vary depending on the size of the pet.
+The near distance that the pet should stop at when following/reaching a target. This will vary depending on the size of the pet.
 
 ## `far`
 
@@ -114,26 +113,26 @@ The distance that a pets target must move away before the pet begins following i
 
 ## `emotes`
 
-Emotes are an optional extension to pets, that platforms can choose to support.
+Emotes are an optional extension to pets that platforms can choose to support.
 
 Each platform may execute emotes differently, eg on a timer or when interacting with the pet.
 
 Each emote includes:
 
-1. (required) The name of the emote for use in UI
-1. (required) The name of the `animation` to play. The animation should not loop.
+1. (required) The `name` of the emote for use in UI
+1. (required) The `animation` to play. The animation is played just once.
 1. (optional) The URL of an `audio` clip to play. This must be a fully qualified URL to an `.mp3` file.
 
 ## Usage
 
 Each platform can have their own requirements for how interoperable objects are spawned into their virtual worlds.
 
-Some options for this are:
+Some examples:
 
 1. Allowing users to simply drag and drop a `.json` file directly into the world
 1. Allowing users to paste a link to a `.json` file hosted somewhere online
 1. Allowing users to click an upload button and select a `.json` file
-1. Allowing users to see and use NFTs that contain a reference to the json file within its metadata
+1. Allowing users to see and use NFTs that contain a reference to a spec in their metadata
 
 ## Behavior
 
@@ -141,19 +140,19 @@ How the pet behaves inside each platform is up to them, but here is a basic exam
 
 1. The pet spawns in front of its owner looking at them, using the `idle` animation
 2. If the owner moves `far` from the pet, the pet starts to follow the owner, using the `speed` value and `move` animation
-3. When the pet gets `near` the owner again, the pet moves back to an `idle` mode
+3. Once the pet gets `near` the owner again, the pet moves back to an `idle` mode
 4. When the owner or someone else interacts with the pet, a random `emote` is chosen and executed
 5. When the owner commands the pet to `stay`, the pet no longer follows its owner
 
-While this gives you a rough idea of how the attributes can work together to form a pet, there are other things you can do too, such as roaming pets with full pathfinding capabilities or pets powered by AI.
+While this gives you a rough idea of how the attributes can work together to form pet behavior, ultimately the choice is up to each platform. Some platforms may choose to have roaming pets with pathfinding or be powered by AI.
 
 ## Validation
 
-We wrote a simple [validation script](/validate.js) that can be used by platforms to validate that a document perfectly conforms to the pet spec.
+We've included a simple [validation script](/validate.js) that can be used by platforms to validate that a document perfectly conforms to the pet spec.
 
 ## Examples
 
-The [examples](/examples) folder includes example pet documents and their assets.
+The [examples](/examples) folder includes example pets and assets.
 
 ## Todo
 

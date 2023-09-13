@@ -1,6 +1,6 @@
 {
   "type": "M3_pet",
-  "version": [0, 1, 0],
+  "version": "0.1.0",
   "name": "Wolf",
   "description": "A little blue wolf.",
   "model": "wolf.glb",

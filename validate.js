@@ -1,4 +1,4 @@
-const supported = semver(0, 1, 0);
+const supported = semver("0.1.0");
 
 /**
  * Usage:
@@ -12,11 +12,8 @@ export function validate(spec) {
   if (!spec) return `invalid`;
   if (!spec.type) return `missing 'type' attribute`;
   if (spec.type !== "M3_pet") return `invalid 'type' attribute`;
-  if (!Array.isArray(spec.version)) return `invalid 'version' attribute`;
-  if (!isNumber(spec.version[0])) return `invalid 'version' attribute`;
-  if (!isNumber(spec.version[1])) return `invalid 'version' attribute`;
-  if (!isNumber(spec.version[2])) return `invalid 'version' attribute`;
-  const version = semver(...spec.version);
+  if (!isSemver(spec.version)) return `missing 'version' attribute`;
+  const version = semver(spec.version);
   if (version.isGreaterThan(supported)) return `unsupported version`;
   if (!spec.name) return `missing 'name' attribute`;
   if (!spec.description) return `missing 'description' attribute`;
@@ -38,11 +35,8 @@ export function validate(spec) {
   }
 }
 
-function isNumber(n) {
-  return !isNaN(n);
-}
-
-function semver(major, minor, patch) {
+function semver(str) {
+  const [major, minor, patch] = str.split(".").map((n) => parseInt(n));
   const isEqual = (other) => {
     return (
       major === other.major && minor === other.minor && patch === other.patch
@@ -70,4 +64,19 @@ function semver(major, minor, patch) {
     isGreaterThan,
     isLessThan,
   };
+}
+
+function isNumber(n) {
+  return !isNaN(n);
+}
+
+function isString(str) {
+  return typeof str === "string";
+}
+
+function isSemver(str) {
+  if (!str) return false;
+  if (!isString(str)) return false;
+  const [major, minor, patch] = str.split(".").map((n) => parseInt(n));
+  return isNumber(major) && isNumber(minor) && isNumber(patch);
 }
