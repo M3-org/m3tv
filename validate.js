@@ -12,7 +12,8 @@ export function validate(spec) {
   if (!spec) return `invalid`;
   if (!spec.type) return `missing 'type' attribute`;
   if (spec.type !== "M3_pet") return `invalid 'type' attribute`;
-  if (!isSemver(spec.version)) return `missing 'version' attribute`;
+  if (!spec.version) return `missing 'version' attribute`;
+  if (!isSemver(spec.version)) return `invalid 'version' attribute`;
   const version = semver(spec.version);
   if (version.isGreaterThan(supported)) return `unsupported version`;
   if (!spec.name) return `missing 'name' attribute`;
