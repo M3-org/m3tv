@@ -99,6 +99,8 @@ In addition to this, each model MUST include:
 1. An animation named `stay` that will be used when the pet has no objectives or has been ordered to stay, eg sitting or lying down
 1. A mesh that includes `_hitbox` in its name, used to approximate the shape of the pet for interaction (use a fully transparent material for extra interop)
 
+Models must also meet the performance [Limitations](#limitations).
+
 ## `speed`
 
 The speed at which the pet moves, in meters per second. Generally this would be approximated to match the `move` animation speed.
@@ -146,7 +148,7 @@ How the pet behaves inside each platform is up to them, but here is a basic exam
 
 While this gives you a rough idea of how the attributes can work together to form pet behavior, ultimately the choice is up to each platform. Some platforms may choose to have roaming pets with pathfinding or be powered by AI.
 
-## Performance
+## Limitations
 
 The ability to define custom UGC assets such as 3D models for a pet introduces a universal issue of performance.
 
