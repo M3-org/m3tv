@@ -146,6 +146,27 @@ How the pet behaves inside each platform is up to them, but here is a basic exam
 
 While this gives you a rough idea of how the attributes can work together to form pet behavior, ultimately the choice is up to each platform. Some platforms may choose to have roaming pets with pathfinding or be powered by AI.
 
+## Performance
+
+The ability to define custom UGC assets such as 3D models for a pet introduces a universal issue of performance.
+
+It is fair to say that no platform (or engine) is able to support an infinite amount of compute, so it seems like it is in our best interest to introduce asset limitations.
+
+These limitations will help foster the adoption of interoperable objects and allow them to be used across as many virtual worlds as possible:-
+
+| Limitation | Maximum             |
+| ---------- | ------------------- |
+| Size       | 3 MB                |
+| Bounds     | 3m x 3m x 3m        |
+| Triangles  | 10,000              |
+| Textures   | 2048 x 2048 (total) |
+| Draw Calls | 2                   |
+| Lights     | 0                   |
+
+The limitations are intentionally strict for maximum adoption.
+
+Some platforms may choose to raise their limits but creators should strive to meet them in order for their pets to be compatible across a larger number of platforms.
+
 ## Validation
 
 We've included a simple [validation script](/validate.js) that can be used by platforms to validate that a document perfectly conforms to the pet spec.
